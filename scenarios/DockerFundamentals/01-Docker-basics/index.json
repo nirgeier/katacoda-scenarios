@@ -1,0 +1,81 @@
+{
+  "title": "01 - Docker Intro",
+  "description": "01 - Docker Intro",
+  "difficulty": "beginner",
+  "time": "1 hours",
+  "details": {
+    "steps": [
+      {
+        "title": "Verify docker Installation",
+        "text": "steps/step01-Verify_docker_Installation.md"
+      },
+      {
+        "title": "Creating DockerHub account",
+        "text": "steps/step02-Creating_DockerHub_account.md"
+      },
+      {
+        "title": "Install nodeJs",
+        "text": "steps/step03-Install_nodeJs.md"
+      },
+      {
+        "title": "Building the nodeJs Server",
+        "text": "steps/step04-Building_the_nodeJs_Server.md"
+      },
+      {
+        "title": "Testing the nodeJs Server",
+        "text": "steps/step05-Testing_the_nodeJs_Server.md"
+      },
+      {
+        "title": "Writing DockerFile",
+        "text": "steps/step06-Writing_DockerFile.md"
+      },
+      {
+        "title": "Building the container",
+        "text": "steps/step07-Building_the_container.md"
+      },
+      {
+        "title": "Task #1",
+        "text": "steps/step08-Task_#1.md"
+      },
+      {
+        "title": "Solution Task #1",
+        "text": "steps/step09-Solution_Task_#1.md"
+      },
+      {
+        "title": "Building and uploading the container",
+        "text": "steps/step10-Building_and_uploading_the_container.md"
+      }
+    ],
+    "assets1": {
+      "client": [
+        {
+          "file": "node-server/*",
+          "target": "node-server/"
+        }
+      ]
+    },
+    "intro": {
+      "courseData": "courseBase.sh",
+      "text": "steps/intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "steps/finish.md"
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mWelcome.\r\n\u001b[33m\u001b[mTo the Docker Into Hands-On",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Node Server",
+        "port": 3000
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}

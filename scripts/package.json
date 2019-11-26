@@ -1,0 +1,23 @@
+{
+  "name": "CodeWizard-Tutorials",
+  "version": "1.0.0",
+  "description": "[![](http://shields.katacoda.com/katacoda/nirgeier/count.svg)](https://www.katacoda.com/nirgeier \"Get your profile on Katacoda.com\")",
+  "main": "buildScenarioSteps.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nirgeier/katacoda-scenarios.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nirgeier/katacoda-scenarios/issues"
+  },
+  "homepage": "https://github.com/nirgeier/katacoda-scenarios#readme",
+  "dependencies": {
+    "del": "^5.1.0",
+    "fs-extra": "^8.1.0"
+  }
+}

@@ -1,0 +1,1 @@
+node buildScenarioSteps.js && cd ../ && git add . && git commit --amend --no-edit -m"Initial Commit" && git push -f

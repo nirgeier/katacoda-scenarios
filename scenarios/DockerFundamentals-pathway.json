@@ -1,0 +1,16 @@
+{
+    "title": "Docker Fundamentals",
+    "description": "Docker Fundamentals",
+    "courses": [
+        {
+            "course_id": "01-Docker-basics",
+            "title": "01-Docker-basics",
+            "description": "01-Docker-basics"
+        },
+        {
+            "course_id": "02-Docker-FileSystem",
+            "title": "02-Docker-FileSystem",
+            "description": "02-Docker-FileSystem"
+        }
+    ]
+}

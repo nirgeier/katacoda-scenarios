@@ -1,0 +1,38 @@
+{
+  "title": "02 - Docker Volumes & File System",
+  "description": "02 - Docker Volumes & File System",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Docker File System",
+        "text": "steps/step01-Docker_File_System.md"
+      },
+      {
+        "title": "Pass parameters to container",
+        "text": "steps/step02-Pass_parameters_to_container.md"
+      },
+      {
+        "title": "One more container",
+        "text": "steps/step03-One_more_container.md"
+      }
+    ],
+    "intro": {
+      "text": "steps/intro.md",
+      "credits": "Nir Geier"
+    },
+    "finish": {
+      "text": "steps/finish.md"
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mWelcome.\r\n\u001b[33m\u001b[mTo the Docker FileSystem Hands-On",
+    "showdashboard": true
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
