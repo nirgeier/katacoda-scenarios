@@ -1,0 +1,25 @@
+section.nobg::before {
+    background-image: none;
+}
+
+section.unix::before {
+    background: url('/images/unix-bg.jpg') center no-repeat;
+    background-size: cover;
+}
+
+section.users::before {
+    background: url('/images/users.png') center no-repeat;
+    filter: alpha(0.1);
+    background-size: 20%;
+}
+
+section.bash::before {
+    background: url('/images/bash.png') center no-repeat;
+    background-size: 80%;
+}
+
+section.history::before {
+    background: black url('/images/History.jpg') center no-repeat;
+    background-size: 100%;
+    filter: alpha(1);
+}

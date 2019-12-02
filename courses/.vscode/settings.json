@@ -1,0 +1,13 @@
+{
+    "editor.formatOnType": true,
+    "markdown.marp.themes": [
+        "./themes/codeWizard-theme.css"
+    ],
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/themes"
+        }
+    ]
+}

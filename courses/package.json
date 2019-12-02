@@ -1,0 +1,37 @@
+{
+  "name": "UnixBasics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "marp": {
+    "inputDir": ".",
+    "output": "./slides/html",
+    "theme": "./themes/codeWizard-theme.css",
+    "html": true
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "@marp-team/marp-cli": "^0.14.1",
+    "@marp-team/marpit": "^1.4.0",
+    "del": "^5.1.0",
+    "fs-extra": "^8.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "mS": "marp --server",
+    "mPDF": "marp --pdf -o ./slides/pdf",
+    "mHTML": "marp --html -o ./slides/html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nirgeier/UnixBasics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nirgeier/UnixBasics/issues"
+  },
+  "homepage": "https://github.com/nirgeier/UnixBasics#readme"
+}

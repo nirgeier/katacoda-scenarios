@@ -1,0 +1,35 @@
+@for $i from 12 through 32 {
+
+  .font-#{$i},
+  section.font-#{$i} {
+    font-size: #{$i}px;
+  }
+}
+
+@for $i from 2 through 4 {
+  section.columns-#{$i} {
+    column-count: #{$i};
+  }
+}
+
+table {
+  display: inline-block
+}
+
+footer {
+  img:nth-of-type(1) {
+    float: left;
+    margin: -7px 0 0 50px;
+  }
+
+  img:nth-of-type(2) {
+    float: right;
+    margin: -7px 50px 0 0;
+  }
+
+}
+
+.fas {
+  // width: 32px;
+  text-align: center;
+}

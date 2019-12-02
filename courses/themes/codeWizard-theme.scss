@@ -1,0 +1,103 @@
+/* @theme codeWizard-theme */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900|Roboto+Mono:400,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.7.1/css/all.css');
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+@import 'sunburst';
+@import 'base';
+@import 'size';
+@import 'backgrounds';
+
+section {
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: -1px;
+    position: relative;
+    color: rgba(0, 0, 0, 0.9);
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        filter: alpha(0.05);
+    }
+}
+
+.columns {
+    column-count: 2;
+}
+
+.center {
+    width: 750px;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    // background: rgba(0, 0, 0, 0.05);
+    // padding: 0 10px;// border-radius: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #26428C;
+}
+
+.no-border {
+    border: none !important;
+}
+
+ol li {
+    list-style-type: none;
+}
+
+.numbered ol li {
+    list-style-type: decimal;
+}
+
+section.text-center {
+    text-align: center;
+}
+
+section.header-yellow h1 {
+    color: white !important;
+    padding: 30px 0;
+    border: 0;
+}
+
+kbd {
+    font-family: "Consolas", "Lucida Console", monospace;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 0px 7px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 1); // 1px 1px 3px #333333;
+    margin: 2px;
+    vertical-align: text-bottom;
+    background: #dddddd;
+    color: black;
+    cursor: pointer;
+    font-variant: small-caps;
+
+    /* Prevent selection */
+    user-select: none;
+
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
