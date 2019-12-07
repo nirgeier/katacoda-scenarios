@@ -5,7 +5,6 @@
 .history
 output/**
 tmp/**
-slides/**
 ### Node ###
 # Logs
 logs

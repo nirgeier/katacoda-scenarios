@@ -2,7 +2,7 @@
 marp: true
 theme: codeWizard-theme
 paginate: true
-footer: '![](/images/codeWizard-logo-sm.png)'
+footer: ''
 ---
 
 <!-- _class: first-slide-unix -->

@@ -7,7 +7,7 @@
         {
             "format": "expanded",
             "extensionName": ".css",
-            "savePath": "/themes"
+            "savePath": "/slides/themes"
         }
     ]
 }

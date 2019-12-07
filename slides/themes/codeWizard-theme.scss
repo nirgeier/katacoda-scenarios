@@ -25,6 +25,12 @@ section {
         background-size: cover;
         filter: alpha(0.05);
     }
+
+    // Page number
+    &::after {
+        font-size: 50%;
+    }
+
 }
 
 .columns {
@@ -100,4 +106,15 @@ hr {
     content: "";
     display: block;
     clear: both;
+}
+
+footer {
+    margin: 0 50px;
+    background: url('/images/codeWizard-logo-sm.png') left no-repeat;
+}
+
+
+// Fix the pages navigation
+.bespoke-marp-parent>.bespoke-marp-osc {
+    bottom: 75px;
 }

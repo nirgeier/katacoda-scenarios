@@ -4,8 +4,8 @@ paginate: true
 inlineSVG: true
 auto-scaling: true
 class: unix
-footer: '![](/images/codeWizard-logo-sm.png) ![](/images/netcraft-logo-full.png)
-<div><b>Linux introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd &thinsp;|&thinsp; nirgeier@gmail.com</sub></div>'
+footer: '<div><b>Linux introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd &thinsp;|&thinsp; nirgeier@gmail.com</sub></div>
+'
 ---
 
 <!-- _class: nobg -->

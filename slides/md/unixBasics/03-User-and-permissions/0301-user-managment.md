@@ -1,7 +1,10 @@
 ---
 marp: true
 paginate: true
-footer: '![](/images/codeWizard-logo-sm.png) ![](/images/netcraft-logo-full.png) <div style="text-align:center; line-height:20px;"><b>Linux Shell - Users / Groups / Permissions</b><br/><sub>&copy;CodeWizard ltd &emsp; | &emsp; nirgeier@gmail.com</sub></div>'
+inlineSVG: true
+auto-scaling: true
+footer: '<div><b>Linux Shell - Users / Groups / Permissions</b><br/><sub>&copy;CodeWizard ltd &emsp; | &emsp; nirgeier@gmail.com
+</sub></div>'
 class: users 
 ---
 

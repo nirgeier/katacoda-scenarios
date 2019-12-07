@@ -1,9 +1,10 @@
 ---
 marp: true
 paginate: true
+inlineSVG: true
+auto-scaling: true
 class: bash 
-footer: '![](/images/codeWizard-logo-sm.png) ![](/images/netcraft-logo-full.png)
-<div style="text-align:center; line-height:20px;"><b>Linux Shell - Commands</b><br/> <sub>&copy;CodeWizard ltd &emsp; | &emsp; nirgeier@gmail.com</sub></div>'
+footer: '<div><b>Linux Shell - Commands</b><br/> <sub>&copy;CodeWizard ltd &emsp; | &emsp; nirgeier@gmail.com</sub></div>'
 ---
 
 <!-- _class: nobg -->
