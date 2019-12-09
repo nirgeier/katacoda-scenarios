@@ -14,6 +14,10 @@
         "text": "steps/step01-Preparations [2].md"
       },
       {
+        "title": "Building the cluster copy",
+        "text": "steps/step02-Building_the_cluster copy.md"
+      },
+      {
         "title": "Building the cluster",
         "text": "steps/step02-Building_the_cluster.md"
       }

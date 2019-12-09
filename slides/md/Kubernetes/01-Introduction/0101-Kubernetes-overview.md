@@ -21,13 +21,18 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 ---
 
 # What is Kubernetes?
-- The meaning of `Kubernetes` is **Captain** in Greek
-- `Kubernetes` is also referred to as K8S (K **ubernete** S) 
-- Open-source container-orchestration software
-- Originally Developed by Google (2013) and v1.0 released to the public in 07/2015
-- Was based upon Google `Borg` (Large Cluster Management) developed internally by Google 
-- Today is managed by :Cloud Native Computing Foundation (CNCF)
-- The most contributed project by Unix community after the Linux Kernel 
+* The meaning of `Kubernetes` is **Captain** in Greek
+* `Kubernetes` is also referred to as K8S (K **ubernete** S) 
+* Open-source container-orchestration software
+* Supplu automation for deploymnet, scalling, operation and more
+* Originally Developed by Google (2013) and v1.0 released to the public in 07/2015
+* Was based upon Google `Borg` (Large Cluster Management) developed internally by Google 
+* Today is managed by the Cloud Native Computing Foundation (CNCF)
+* The most contributed project by Unix community after the Linux Kernel 
+
+---
+# Kubernetes Architecture
+![bg 75% cover](/images/k8s-clusters.png)
 
 ---
 # Terminology
@@ -43,6 +48,7 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 - StatefulSets
 - DaemonSets
 - Labels and selectors
+- etcd
 
 ---
 
@@ -56,8 +62,17 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 * A `cluster` is a **set of machines**, called **nodes**, that run containerized applications managed by Kubernetes
 
 ---
+<!-- _class: bg_white -->
+
+# Terminology - Nodes (architecture)
+
+![bg 70% cover](/images/k8s-node-components-architecture.png)
+
+---
 
 # Terminology - Nodes
+<br/>
+
 - A node is a `worker machine` in Kubernetes, previously known as a **minion**.
 - A node may be a VM or physical machine, depending on the cluster
 - The services on a each node include the container runtime, kubelet and kube-proxy
@@ -94,6 +109,36 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 - Applications with in the same pod can use _localhost_ for communication
 
 ---
+
+# Terminology - Pod (yaml configuration)
+
+- `kind: pod`
+
+  ```sh
+  apiVersion: v1
+  kind: Pod
+  metadata:
+    name: pod1
+    labels:
+      tier: frontend
+  spec:
+    containers:
+    - name: hello1
+      image: gcr.io/google-samples/hello-app:2.0
+      imagePullPolicy: Always 
+      command: ["echo", "SUCCESS"] 
+
+  ```
+
+  ```sh
+  # pull the image and create a container
+  $ kubectl create –f <file name>
+
+  # Print the log message
+  $ kubectl log <pod name>
+  ```
+---
+
 # Terminology - Replica Sets
 - The aim of `ReplicaSet` is to maintain a stable set of replica Pods running at any given time
 - `ReplicaSet` is a collection of definitions which specify the pods. 
@@ -124,10 +169,6 @@ Spec:
     Spec: # This spec section should look like spec in a pod definition
       Containers: 
 ```
----
-# Kubernetes Architecture
-![bg 75% cover](/images/k8s-clusters.png)
-
 
 ---
 <!-- _class: nobg -->
