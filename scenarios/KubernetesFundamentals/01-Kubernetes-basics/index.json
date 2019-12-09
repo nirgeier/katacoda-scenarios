@@ -6,12 +6,16 @@
   "details": {
     "steps": [
       {
-        "title": "Preparations [1]",
-        "text": "steps/step00-Preparations [1].md"
+        "title": "Preparations[1]",
+        "text": "steps/step00-Preparations[1].md"
       },
       {
-        "title": "Preparations [2]",
-        "text": "steps/step01-Preparations [2].md"
+        "title": "Preparations[2]",
+        "text": "steps/step01-Preparations[2].md"
+      },
+      {
+        "title": "Building the cluster copy",
+        "text": "steps/step02-Building_the_cluster copy.md"
       },
       {
         "title": "Building the cluster",
