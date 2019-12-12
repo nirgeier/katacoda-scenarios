@@ -31,6 +31,7 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 * The most contributed project by Unix community after the Linux Kernel 
 
 ---
+
 # Kubernetes Architecture
 ![bg 75% cover](/images/k8s-clusters.png)
 
@@ -73,30 +74,47 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 # Terminology - Nodes
 <br/>
 
-- A node is a `worker machine` in Kubernetes, previously known as a **minion**.
-- A node may be a VM or physical machine, depending on the cluster
-- The services on a each node include the container runtime, kubelet and kube-proxy
-- k8s has a unique node named **Master Node** (Master Components)
-- Each node contains the services necessary to run pods and is managed by the master components
-- Node is a top-level resource in the Kubernetes REST API
+* A node is a `worker machine` in Kubernetes, previously known as a **minion**.
+* A node may be a VM or physical machine, depending on the cluster
+* The services on a each node include the container runtime, kubelet and kube-proxy
+* k8s has a unique node named **Master Node** (Master Components)
+* Node is a top-level resource in the Kubernetes REST API
+* Each node contains the services necessary to run pods and is managed by the master components
+  - Container Engine (typically Docker)
+  - `kubelet` (aka “node agent”)
+  - `kube-proxy` (a necessary but not sufficient network component)
 
 ---
 
 # Terminology - Master Node (Master Components)
-- **Master components** provide the cluster’s control plane
-- **Master components** manage the cluster (ex: scheduling, deploying)
-- **Master components** can run on any node but usually deployed to a dedicated node
-- The can be multiple masters nodes for high availability 
-- The main components of the **Master Node** (in addition to worker node components) are:
+* **Master components** in Kubernetes is a collection of services
+* **Master components** provide the cluster’s control plane
+* **Master components** manage the cluster (ex: scheduling, deploying)
+* **Master components** can run on any node but usually deployed to a dedicated node
+* The can be multiple masters nodes for high availability 
+* The main components of the **Master Node** (in addition to worker node components) are:
     - kube-apiserver
-    - etcd
+    - etcd (a highly available key/value store; the `“database”` of Kubernetes)
     - kube-scheduler
     - kube-controller-manager
     - Node Controller
     - And more ...
-
 ---
+# Kubernetes resources
+* The Kubernetes API defines a set of resources
+* Resources are organized by type, `kind`
+  Most common resource `kinds` are:
+    Kind        |  Description
+    ------------|-------------
+    `node`      | a machine — physical or virtual — in our cluster
+    `pod`       | group of containers running together on a host
+    `service`   | stable network endpoint to connect to one or multiple containers
+    `namespace` | isolated group of things
+    `replicaset`| set of containers which can be scalled
+    `secret`    | sensitive data to be passed to a container
 
+    And much more! (We can see the full list by running `kubectl get <...>`)
+---
 # Terminology - Pod
 - The most basic component of k8s
 - Pod is a group of containers which is deployed to the host machine

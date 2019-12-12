@@ -3,9 +3,9 @@
     "description": "Kubernetes Fundamentals",
     "courses": [
         {
-            "course_id": "01-Kubernetes-basics",
-            "title": "01-Kubernetes-basics",
-            "description": "01-Kubernetes-basics"
+            "course_id": "01-Kubernetes-100",
+            "title": "01-Kubernetes-100",
+            "description": "01-Kubernetes-100"
         }
     ]
 }
