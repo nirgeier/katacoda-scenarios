@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  server1:
+    build: server1
+    ports:
+    - "3000:3000"
+    volumes:
+    - "./shared_volume:/shared_volume"
+
+  server2:
+    build: server2
+    ports:
+    - "5000:5000"
+    volumes:
+    - "./shared_volume:/shared_volume"
+  
