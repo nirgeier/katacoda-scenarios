@@ -323,6 +323,41 @@ Node types            | Description
 
 ---
 
+# Terminology - Volumes
+ - In Docker volumes are set of mapping paths from the host to the container and vice versa
+ - In k8s, volumes has an explicit lifetime - the same as the Pod that encloses it.
+For example: when Pod ceases to exist, the volume will cease to exist as well.
+- k8s supports multiple types of volumes
+
+  - My Favorite: **gitRepo (deprecated)**
+
+---
+
+# Terminology - Namespaces
+- Kubernetes supports multiple virtual clusters deployed on the same physical cluster. 
+  (multiple separate sub groups)
+- These virtual clusters are called `namespaces`.
+- Namespaces are a way to divide cluster resources between multiple users (via resource quota).
+- Namespaces provide a scope for names. 
+  Names of resources need to be unique within a namespace
+- Namespaces can not be nested inside one another and each Kubernetes resource can only be in one namespace.
+
+---
+
+# Terminology - Namespaces
+- Kubernetes starts with three initial namespaces:
+
+Namespaces      | Description
+----------------|------------
+`default`       | The default namespace for objects with no other namespace
+`kube-system`   | The namespace for objects created by the Kubernetes system
+`kube-public`   | This namespace is created automatically and is readable by<br/> all users (including those not authenticated). 
+
+---
+
+# Terminology - ConfigMaps
+
+---
 <!-- _class: nobg -->
 
 ![bg cover](/images/the-end.jpg)
