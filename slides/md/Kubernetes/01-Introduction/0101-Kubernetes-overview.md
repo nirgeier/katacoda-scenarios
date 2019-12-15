@@ -36,12 +36,28 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 ![bg 75% cover](/images/k8s-clusters.png)
 
 ---
+
+# Kubernetes resources
+* The Kubernetes API defines a set of resources
+* Resources are organized by type, `kind`
+  Most common resource `kinds` are:
+    Kind        |  Description
+    ------------|-------------
+    `node`      | a machine — physical or virtual — in our cluster
+    `pod`       | group of containers running together on a host
+    `service`   | stable network endpoint to connect to one or multiple containers
+    `namespace` | isolated group of things
+    `replicaset`| set of containers which can be scalled
+    `secret`    | sensitive data to be passed to a container
+
+    And much more! (We can see the full list by running `kubectl get <...>`)
+---
 # Terminology
 
 - Cluster
 - Nodes / Master node
 - Pod
-- Replica Sets
+- Replica Sets / Deployments
 - Services
 - Volumes
 - Namespaces
@@ -98,23 +114,9 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
     - kube-scheduler
     - kube-controller-manager
     - Node Controller
-    - And more ...
+    
 ---
-# Kubernetes resources
-* The Kubernetes API defines a set of resources
-* Resources are organized by type, `kind`
-  Most common resource `kinds` are:
-    Kind        |  Description
-    ------------|-------------
-    `node`      | a machine — physical or virtual — in our cluster
-    `pod`       | group of containers running together on a host
-    `service`   | stable network endpoint to connect to one or multiple containers
-    `namespace` | isolated group of things
-    `replicaset`| set of containers which can be scalled
-    `secret`    | sensitive data to be passed to a container
 
-    And much more! (We can see the full list by running `kubectl get <...>`)
----
 # Terminology - Pod
 - The most basic component of k8s
 - Pod is a group of containers which is deployed to the host machine
@@ -134,7 +136,7 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 
   ```sh
   apiVersion: v1
-  kind: Pod
+  kind: Pod <-----------------------------------<<
   metadata:
     name: pod1
     labels:
@@ -151,9 +153,6 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
   ```sh
   # pull the image and create a container
   $ kubectl create –f <file name>
-
-  # Print the log message
-  $ kubectl log <pod name>
   ```
 ---
 
@@ -161,8 +160,14 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 - The aim of `ReplicaSet` is to maintain a stable set of replica Pods running at any given time
 - `ReplicaSet` is a collection of definitions which specify the pods. 
 - It contains pod templates for creating or updating new pods.
+- In production its much better to use `Deployment` than `ReplicaSet`, deployment is reacher in features 
+- To get the ResplicaSet information:
+  ```sh
+  kubectl get rs
+  ```
 
 ---
+
 # Terminology - Replica Sets
 ```sh
 apiVersion: apps/v1 # our API version
@@ -189,6 +194,135 @@ Spec:
 ```
 
 ---
+
+# Terminology - Deployments
+- `Deployment` provides declarative updates for `Pods` and `ReplicaSets`.
+- `Deployment` controll and update the state of the Pods in the ReplicaSet
+- Main `Deploymnet` use cases
+  - Update ReplicaSet for rollback
+  - Update Pods (add/remove/update)
+  - Scale up/down
+  - Clean old ReplicaSet
+
+---
+# Terminology - Deploymnets
+
+- `Deployment` ensures that only a **certain number of Pods are down** while they are being created or updated. 
+
+- Every time deployment is noticing changges, a `ReplicaSet` is created to ferlect the changes to the  desired Pods
+
+- During **`update`**, <br/>by default, at least 75% of the desired number of Pods are up (25% max unavailable).
+
+- During **`creation`**,<br/> by default, at most 125% of the desired number of Pods are up (25% max surge).
+
+---
+# Terminology - Deployments
+
+- Create X deploymnets units of nginx
+    ```
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: nginx-deployment
+      labels:
+        app: nginx
+    spec:
+      replicas: 3
+      selector:
+        matchLabels:
+          app: nginx
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          containers:
+          - name: nginx
+            image: nginx
+            ports:
+            - containerPort: 80
+    ```
+---
+
+# Terminology - Deploymnets
+
+- Use Deploymnet
+  ```sh
+  kubectl scale deployment.v1.apps/nginx-deployment --replicas=10 --record=true
+  ```
+
+- Get details of your Deployment:
+  ```sh
+  kubectl describe deployments
+  ```
+---
+
+# Terminology - Services
+
+- A `Service` is an **abstraction** which defines a 
+  - **Logical set** of Pods and a
+  - **Policy** by which to access them (aka micro-service). 
+
+- The set of Pods is accessed by a selector
+- A `Service` in Kubernetes is a REST object
+- A `Service` is responsible for enabling network access to a set of pods.
+  - Pods can connect each other via direct network requests, while `Service` is used for exposing services to the "world"
+
+---
+
+# Terminology - Services
+
+- Kubernetes assigns Service an IP address (aka “cluster IP”), which is used by the `Service` proxies
+- Every node in a Kubernetes cluster runs a `kube-proxy`. 
+  kube-proxy is responsible for implementing a form of virtual IP for Services
+- Services can define multiple ports and event static IPs
+---
+
+<!-- _class: bg_white -->
+# Terminology - Services
+
+![bg 55% ](/images/k8s-services.png)
+
+---
+
+# Terminology - Services
+
+```sh
+kind: Service 
+apiVersion: v1 
+metadata:
+  name: hostname-service 
+spec:
+  # Expose the service on a static port on each node so that we can access the service from outside the cluster 
+  type: NodePort
+
+  # When the node receives a request on the static port (30163) "select pods with the label 'app' set to 'echo-hostname'" 
+  # and forward the request to one of them
+  selector:
+    app: echo-hostname 
+
+  # Three types of ports for a service
+  #    - nodePort - a static port assigned on each the node
+  #    - port - port exposed internally in the cluster
+  #    - targetPort - the container port to send requests to
+  ports:
+    - nodePort: 30163
+      port: 8080 
+      targetPort: 80
+```
+---
+# Terminology - Services (ServiceTypes)
+Kubernetes ServiceTypes allow you to specify what kind of Service you want. 
+
+Node types            | Description
+----------------------|------------
+`ClusterIP` [default] | Exposes the Service on a cluster-internal IP, which makes the<br/> Service only reachable from within the cluster. 
+`NodePort`            | Exposes the Service on each Node’s IP at a static port (the NodePort). 
+`LoadBalancer`        | Exposes the Service externally using a cloud provider’s load balancer. <br/>NodePort and ClusterIP Services, to which the external load balancer <br/>routes,are automatically created.
+`ExternalName`        | Maps the Service to the contents of the externalName field <br/>(e.g. foo.bar.example.com), by returning a CNAME record
+
+---
+
 <!-- _class: nobg -->
 
 ![bg cover](/images/the-end.jpg)
