@@ -50,7 +50,7 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
     `replicaset`| set of containers which can be scalled
     `secret`    | sensitive data to be passed to a container
 
-    And much more! (We can see the full list by running `kubectl get <...>`)
+
 ---
 # Terminology
 
@@ -62,8 +62,6 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 - Volumes
 - Namespaces
 - ConfigMaps and Secrets
-- StatefulSets
-- DaemonSets
 - Labels and selectors
 - etcd
 
@@ -134,7 +132,7 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 
 - `kind: pod`
 
-  ```sh
+  ```
   apiVersion: v1
   kind: Pod <-----------------------------------<<
   metadata:
@@ -150,7 +148,7 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 
   ```
 
-  ```sh
+  ```
   # pull the image and create a container
   $ kubectl create –f <file name>
   ```
@@ -162,14 +160,14 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 - It contains pod templates for creating or updating new pods.
 - In production its much better to use `Deployment` than `ReplicaSet`, deployment is reacher in features 
 - To get the ResplicaSet information:
-  ```sh
+  ```
   kubectl get rs
   ```
 
 ---
 
 # Terminology - Replica Sets
-```sh
+```
 apiVersion: apps/v1 # our API version
 kind: ReplicaSet   # The kind we are creating
 Metadata: # Specify all Metadata like name, labels
@@ -247,12 +245,12 @@ Spec:
 # Terminology - Deploymnets
 
 - Use Deploymnet
-  ```sh
+  ```
   kubectl scale deployment.v1.apps/nginx-deployment --replicas=10 --record=true
   ```
 
 - Get details of your Deployment:
-  ```sh
+  ```
   kubectl describe deployments
   ```
 ---
@@ -287,7 +285,7 @@ Spec:
 
 # Terminology - Services
 
-```sh
+```
 kind: Service 
 apiVersion: v1 
 metadata:
@@ -359,9 +357,12 @@ Namespaces      | Description
 - `ConfigMaps` are used to pass and share key value pairs between pods
 - `Secrets` are similar to config maps and store sensitive data
 
-  ```sh
+  ```
   # Create CongifMap explicitly
   kubectl create configmap my-password --from-literal='password=123'
+
+  # Create CongifMap from properties files
+  kubectl create configmap <cofig name> --from-file=<folder name>
 
   # View config maps
   kubectl get configmaps
@@ -370,9 +371,9 @@ Namespaces      | Description
 ---
 # Terminology - ConfigMaps / Secrets
 
-* Create CongifMap from file
+- Create CongifMap from file
 
-  ```sh
+  ```
   apiVersion: v1
   kind: ConfigMap
   metadata:
@@ -384,7 +385,7 @@ Namespaces      | Description
       rainning: 'false'
   ```
 
-  ```sh
+  ```
   # Create the config maps
   kubectl create -f configmap.yaml
   ```
@@ -393,8 +394,7 @@ Namespaces      | Description
 # Terminology - ConfigMaps / Secrets
 
 - Read the config maps
-- `env:` - Select a specific variable we wish to use
-  
+- `env:` - Select a specific variable we wish to use  
   ```
     ...
     env: 
@@ -413,6 +413,55 @@ Namespaces      | Description
   ```
 
 ---
+# Terminology - ConfigMaps / Secrets
+
+- Define secrets
+  ```
+  # Create files needed for the secrets
+  echo -n 'admin' > ./username.txt
+  echo -n 'secret' > ./password.txt
+
+  # Create the secrets from the 2 seperate files
+  kubectl create secret generic app-user-pass --from-file=./username.txt --from-file=./password.txt
+
+  # Verify that the secret is created
+  kubectl get secrets
+  ```
+---
+# Terminology - Labels and selectors
+
+- Labels are `key/value` pairs which attached and identify objects and reources in k8s.
+- Labels are used to organize and to select subsets of objects
+- Each Key must be unique for a given object.
+- Same objects will have the same label(s), for example instances in replica will have the same lable
+- Labels are used to mark releases, enviroments, versions ....
+  ```
+  apiVersion: v1
+  kind: Pod
+  metadata:
+    name: label-demo
+    labels:
+      environment: production
+      app: nginx
+  ```
+---
+# Terminology - Labels and selectors
+
+- Selectors types:
+  - equality-based 
+  - set-based
+  
+  ```
+  apiVersion: v1
+  kind: Pod
+  metadata:
+    name: label-demo
+    labels:
+      environment: production
+      app: nginx
+  ```
+---
+
 <!-- _class: nobg -->
 
 ![bg cover](/images/the-end.jpg)
