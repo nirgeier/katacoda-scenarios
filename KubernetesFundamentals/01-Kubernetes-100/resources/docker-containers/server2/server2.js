@@ -11,10 +11,10 @@ require('http')
 
         // Write to the shared folder
         fs.ensureFile(FILE_NAME);
-        fs.appendFile(FILE_NAME, `Hello from server1.${os.EOL}`);
+        fs.appendFile(FILE_NAME, `Hello from server2.${os.EOL}`);
 
         // Send reply to user
-        response.end(`<h1>Hello from server1.</h1>`);
+        response.end(`<h1>Hello from server2.</h1>, ${FILE_NAME}`);
 
     }).listen(SERVER_PORT, () => {
         // Notify users that the server is up and running

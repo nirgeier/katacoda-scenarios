@@ -13,4 +13,4 @@ COPY package.json .
 RUN npm i 
 
 # Start the server once the ocntainer is running
-CMD node server1.js
+CMD node ./server1.js
