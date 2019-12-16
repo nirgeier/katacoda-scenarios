@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: config-deploy-01
+spec:
+    replicas: 3
+    template:
+        metadata:
+            labels: 
+                name: demoDeploy
+        
+        spec:
+            containers:
+            - name: pod1
+              image: nginx
+              ports:  
+              - containerPort: 80
+              env:
+              - name: server1-port
+                valueFrom:
+                  confingMapKeyRef:
+                    name: server1-port
+                    key: port2
+              
+                    
+                                

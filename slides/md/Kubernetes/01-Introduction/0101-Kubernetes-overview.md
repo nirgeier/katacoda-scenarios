@@ -355,7 +355,62 @@ Namespaces      | Description
 
 ---
 
-# Terminology - ConfigMaps
+# Terminology - ConfigMaps / Secrets
+- `ConfigMaps` are used to pass and share key value pairs between pods
+- `Secrets` are similar to config maps and store sensitive data
+
+  ```sh
+  # Create CongifMap explicitly
+  kubectl create configmap my-password --from-literal='password=123'
+
+  # View config maps
+  kubectl get configmaps
+  ```
+
+---
+# Terminology - ConfigMaps / Secrets
+
+* Create CongifMap from file
+
+  ```sh
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+      name: config-value01
+      namespace: default
+  data:
+      day: 'Sunday'
+      year: '2019'
+      rainning: 'false'
+  ```
+
+  ```sh
+  # Create the config maps
+  kubectl create -f configmap.yaml
+  ```
+
+---
+# Terminology - ConfigMaps / Secrets
+
+- Read the config maps
+- `env:` - Select a specific variable we wish to use
+  
+  ```
+    ...
+    env: 
+      - name: week-day
+        valueFrom: <-------------------------------
+          configMapKeyRef:
+            name: <.....>
+            key: <.....>
+  ```
+- `envFrom` - Select all the defined variables (in case we have multiple ones)
+  ```
+    ...
+    envFrom: 
+      ConfigMapRef:
+        name: <.....>
+  ```
 
 ---
 <!-- _class: nobg -->
