@@ -17,6 +17,9 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 
 - A bit about Kubernetes 
 - Terminology
+- K8S in depth
+- Demos (For most sections)
+- Hands on 
 
 ---
 
@@ -48,7 +51,7 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
     `pod`       | group of containers running together on a host
     `service`   | stable network endpoint to connect to one or multiple containers
     `namespace` | isolated group of things
-    `replicaset`| set of containers which can be scalled
+    `replicaset`| set of containers which can be scaled
     `secret`    | sensitive data to be passed to a container
 
 
@@ -184,8 +187,8 @@ kubectl run -i -tty <name> --image=... --restart=Never --sh
 - The aim of `ReplicaSet` is to maintain a stable set of replica Pods running at any given time
 - `ReplicaSet` is a collection of definitions which specify the pods. 
 - It contains pod templates for creating or updating new pods.
-- In production its much better to use `Deployment` than `ReplicaSet`, deployment is reacher in features 
-- To get the ResplicaSet information:
+- In production its much better to use `Deployment` than `ReplicaSet`, deployment has more features 
+- To get the ReplicaSet information:
   ```
   kubectl get rs
   ```
@@ -221,19 +224,19 @@ Spec:
 
 # Terminology - Deployments
 - `Deployment` provides declarative updates for `Pods` and `ReplicaSets`.
-- `Deployment` controll and update the state of the Pods in the ReplicaSet
-- Main `Deploymnet` use cases
+- `Deployment` control and update the state of the Pods in the ReplicaSet
+- Main `Deployment` use cases
   - Update ReplicaSet for rollback
   - Update Pods (add/remove/update)
   - Scale up/down
   - Clean old ReplicaSet
 
 ---
-# Terminology - Deploymnets
+# Terminology - Deployments
 
 - `Deployment` ensures that only a **certain number of Pods are down** while they are being created or updated. 
 
-- Every time deployment is noticing changges, a `ReplicaSet` is created to ferlect the changes to the  desired Pods
+- Every time deployment is noticing changes, a `ReplicaSet` is created to reflect the changes to the  desired Pods
 
 - During **`update`**, <br/>by default, at least 75% of the desired number of Pods are up (25% max unavailable).
 
@@ -242,7 +245,7 @@ Spec:
 ---
 # Terminology - Deployments
 
-- Create X deploymnets units of nginx
+- Create X Deployments units of nginx
     ```
     apiVersion: apps/v1
     kind: Deployment
@@ -268,9 +271,9 @@ Spec:
     ```
 ---
 
-# Terminology - Deploymnets
+# Terminology - Deployments
 
-- Use Deploymnet
+- Use Deployment
   ```
   kubectl scale deployment.v1.apps/nginx-deployment --replicas=10 --record=true
   ```
@@ -714,6 +717,85 @@ Kubeadm is a tool for creating Kubernetes clusters.
 * Once the deploy is done then the ingress/router to the app is updated to switch to the new version (green). 
 
 * Sample code 
+
+---
+
+# Networking (Basics)
+* In K8S we use `Network Policies`
+* `Network Policies` is a specification of how groups of pods are allowed to communicate with each other and other network endpoints.
+* `NetworkPolicy` resources use labels to select pods and define rules which specify what traffic is allowed to the selected pods.
+* The main policy types are
+  - Ingress
+  - Egress
+---
+
+# Networking (Basics)
+* Ingress
+  Incoming traffic, **whitelist ingress rules**. 
+  Each rule allows traffic which matches both the **from** and ports sections. 
+
+* Egress
+  Outgoing traffic, **whitelist egress rules**. 
+  Each rule allows traffic which matches both the **to** and ports sections. 
+
+---
+# Networking (Basics)
+- By default, if no policies exist in a namespace, then **all ingress and egress** traffic is allowed to and from pods in the namespace.
+
+### Network Policies
+Policy          | Description
+----------------|------------
+`allow-all`     | Allow all traffic to all pods in a namespace
+`default-deny`  | Block all traffic to all pods in a namespace
+
+---
+
+# Networking (Basics - Ingress)
+```
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+
+policyTypes:
+- Ingress
+- Egress
+ingress:
+- from:
+- ipBlock:
+    cidr: 172.17.0.0/16
+    except:
+    - 172.17.1.0/24
+- namespaceSelector:
+    matchLabels:
+      project: myproject
+- podSelector:
+    matchLabels:
+      role: frontend
+ports:
+- protocol: TCP
+  port: 6379
+```      
+---
+
+# Networking (Basics - Egress)
+```
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+
+policyTypes:
+- Ingress
+- Egress
+egress:
+- to:
+  - ipBlock:
+      cidr: 10.0.0.0/24
+  ports:
+  - protocol: TCP
+    port: 5978
+```      
+---
+
+![bg cover](/images/hands-on.png)
+
 ---
 
 <!-- _class: nobg -->

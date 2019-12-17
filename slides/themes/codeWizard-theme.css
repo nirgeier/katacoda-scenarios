@@ -253,7 +253,7 @@ table td {
 section {
   background-image: linear-gradient(135deg, rgba(136, 136, 136, 0), rgba(136, 136, 136, 0.02) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.05));
   font-size: 28px;
-  font-family: 'Lato', 'Avenir Next', 'Avenir', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  font-family: 'Lato', 'Avenir Next', 'Avenir', 'Trebuchet MS', 'Segoe UI', sans-serif;
   height: 720px;
   line-height: 1.35;
   letter-spacing: 1.25px;
@@ -740,7 +740,7 @@ hr {
 
 footer {
   margin: 0 50px;
-  background: url("/images/codeWizard-logo-sm.png") left no-repeat;
+  background: url("/images/codeWizard-logo-sm.png") left no-repeat, url("/images/hackeru-logo.png") right no-repeat;
 }
 
 .bespoke-marp-parent > .bespoke-marp-osc {
