@@ -223,6 +223,7 @@ Spec:
 ---
 
 # Terminology - Deployments
+- `Deployment` is the pod(s) specifications (labels, replicas, network etc)
 - `Deployment` provides declarative updates for `Pods` and `ReplicaSets`.
 - `Deployment` control and update the state of the Pods in the ReplicaSet
 - Main `Deployment` use cases
@@ -235,11 +236,8 @@ Spec:
 # Terminology - Deployments
 
 - `Deployment` ensures that only a **certain number of Pods are down** while they are being created or updated. 
-
 - Every time deployment is noticing changes, a `ReplicaSet` is created to reflect the changes to the  desired Pods
-
 - During **`update`**, <br/>by default, at least 75% of the desired number of Pods are up (25% max unavailable).
-
 - During **`creation`**,<br/> by default, at most 125% of the desired number of Pods are up (25% max surge).
 
 ---
@@ -300,9 +298,24 @@ Spec:
 # Terminology - Services
 
 - Kubernetes assigns Service an IP address (aka “cluster IP”), which is used by the `Service` proxies
+- `Services` "expose" the pods to the world
+- `Services` serve as load balance layer
 - Every node in a Kubernetes cluster runs a `kube-proxy`. 
   kube-proxy is responsible for implementing a form of virtual IP for Services
 - Services can define multiple ports and event static IPs
+- When we deploy pods k8s they get the desired labels and the Service use selectors to match those labels (pods label).
+- When deployemnt is changes the service is auto updated and reflacting those changes (for example if we add more pods)
+---
+
+# Terminology - Services Ingress
+
+* When we need to reach our pods from the outside we define ingress
+* An ingress is a **host name and path mapping** to Service
+* When a newtwork request is get to the cluster its is being redicrected to the appropiate service
+* A basic deployment is usually build upon:
+  - Deployment
+  - Service
+  - Ingress rules
 ---
 
 <!-- _class: bg_white -->
@@ -311,8 +324,7 @@ Spec:
 ![bg 55% ](/images/k8s-services.png)
 
 ---
-
-# Terminology - Services
+# Terminology - Services yaml
 
 ```
 kind: Service 
@@ -460,6 +472,7 @@ Namespaces      | Description
 # Terminology - Labels and selectors
 
 - Labels are `key/value` pairs which attached and identify objects and resources in k8s.
+- Every object in k8s should have a label
 - Labels are used to organize and to select subsets of objects
 - Each Key must be unique for a given object.
 - Same objects will have the same label(s), for example instances in replica will have the same label

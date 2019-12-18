@@ -3,7 +3,7 @@
 
 - Create a Dockerfile for your server
 
-    `tousch server/Dockerfile`{{execute}}
+    `touch Dockerfile`{{execute}}
 
 - As before copy the content below to the `server/Dockerfile`
 

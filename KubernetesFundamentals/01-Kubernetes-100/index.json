@@ -14,12 +14,16 @@
         "text": "steps/step01-Preparations[2].md"
       },
       {
-        "title": "Building the cluster copy",
-        "text": "steps/step02-Building_the_cluster copy.md"
+        "title": "Building container",
+        "text": "steps/step02-Building_container.md"
+      },
+      {
+        "title": "Build",
+        "text": "steps/step03-Build-K8S-Service.md"
       },
       {
         "title": "Building the cluster",
-        "text": "steps/step02-Building_the_cluster.md"
+        "text": "steps/step99-Building_the_cluster.md"
       }
     ],
     "assets": {
