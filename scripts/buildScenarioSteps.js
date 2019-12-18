@@ -10,8 +10,8 @@ const
  */
 const
 
-  // the folder with teh scenarios 
-  SCENARIOS_FOLDER = `${__dirname}/../scenarios`,
+  // the folder with the scenarios 
+  SCENARIOS_FOLDER = `${__dirname}/`,
 
   // Split camel case string
   splitCamelCase = str => str.replace(/([a-z])-?([A-Z])/g, '$1 $2'),
@@ -137,5 +137,5 @@ fs.readdir(__dirname, (err, files) => {
 
 //buildScenarioSteps(path.join(__dirname, 'DockerFundamentals/01-Docker-basics'));
 //buildScenarioSteps(path.join(__dirname, 'DockerFundamentals/02-Docker-FileSystem'));
-//buildScenarioSteps(path.join(__dirname, 'KubernetesFundamentals/01-Kubernetes-basics'));
-buildPathways();
+buildScenarioSteps(path.join(__dirname, '../KubernetesFundamentals/01-Kubernetes-100'));
+//buildPathways();

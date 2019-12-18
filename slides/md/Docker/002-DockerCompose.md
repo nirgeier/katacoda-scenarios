@@ -117,12 +117,89 @@ footer: '<div><b>Docker Compose</b><br/><sub>&copy;&nbsp;CodeWizard ltd &thinsp;
     http://my-service
 ---
 
+<!-- _class: font-24 -->
+# Docker compose - commands
+
+Command          | Description
+-----------------|---------------------------
+build            | Build the containers
+start/stop       | Start/Stop the containers
+pause/unpause    | Start the containers
+ps               | Display container states 
+start            | Start the containers
+up               | Builds, (re)creates, starts, and attaches to containers for a service.
+up --scale       | scale more instances of a given container
+down             | Stops containers and removes containers, networks, volumes, and images created by up.
+events           | Display changes (history) of containers events
+
+---
+
 # Docker compose - config
 - Validate and view the Compose file.
 - It will print out the "complied" file with full paths, volumes and more
     ```
     docker-compose config
     ```    
+---
+
+# Docker compose - build
+
+`docker-compose build` has several ways to build container:
+
+```
+# build from Dockerfile
+build: .  # Default docker file in the current folder
+args:     # Add build arguments
+    arg1: ...
+    arg2: ...
+
+# build from Custom Dockerfile
+build:
+    context: <dir>
+    dockerfile: <Dockerfile name>
+
+# build from image
+image: <image name>
+
+```
+
+---
+
+# Docker compose - CMD / ENTRYPOINT
+
+- Command
+    ```
+    # command to execute
+    command: bundle exec thin -p 3000
+    command: [bundle, exec, thin, -p, 3000]
+    ```
+
+- entrypoint
+    ```
+    # override the entrypoint
+    entrypoint: <path to script>
+
+    # or - CLI commands (Array)
+    entrypoint: [nodemon, server.js]
+
+    ```
+
+---
+
+# Docker compose - Dependencies
+
+- Makes the `db` service available as the hostname `database` (implies depends_on)
+```
+links:
+    - db:database
+    - redis
+```
+
+- Make sure `db` is alive before starting
+```
+depends_on:
+    - db
+```
 ---
 ![bg cover](/images/hands-on.png)
 
