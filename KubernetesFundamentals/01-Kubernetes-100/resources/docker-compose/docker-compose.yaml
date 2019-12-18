@@ -6,7 +6,7 @@ services:
     - "3000:3000"
     volumes:
     - "./shared_volume:/shared_volume"
-
+    restart: always
   server2:
     build: server2
     ports:

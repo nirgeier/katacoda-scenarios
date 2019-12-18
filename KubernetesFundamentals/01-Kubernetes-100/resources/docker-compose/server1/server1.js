@@ -11,7 +11,7 @@ require('http')
 
         // Write to the shared folder
         fs.ensureFile(FILE_NAME);
-        fs.appendFile(FILE_NAME, `Hello from server1.${os.EOL}`);
+        fs.appendFile(FILE_NAME, `Hello from server1. ${request.url}${os.EOL}`);
 
         // Send reply to user
         response.end(`<h1>Hello from server1.</h1>`);
