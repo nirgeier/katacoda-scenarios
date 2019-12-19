@@ -309,9 +309,10 @@ Spec:
 
 # Terminology - Services Ingress
 
-* When we need to reach our pods from the outside we define ingress
 * An ingress is a **host name and path mapping** to Service
-* When a newtwork request is get to the cluster its is being redicrected to the appropiate service
+* An Ingress is an object that allows access to your Kubernetes services from outside the Kubernetes cluster. 
+* Ingress is configured by creating a **collection of rules** that define which inbound connections reach which services.
+* An ingress is usually but not only **LoadBalancer(s)** for exposing Node services.
 * A basic deployment is usually build upon:
   - Deployment
   - Service
@@ -322,6 +323,33 @@ Spec:
 # Terminology - Services
 
 ![bg 55% ](/images/k8s-services.png)
+
+---
+
+<!-- _class: bg_white -->
+# Terminology - Services NodePort
+<img class="float-right" src="/images/k8s-nodeport.png" width="50%">
+
+- `NodePort` is a configuration setting you declare in a service’s YAML. 
+- Set the service spec’s type to `NodePort`. 
+  Then, Kubernetes will allocate a specific port on each Node to that service, and any request to your cluster on that port gets forwarded to the service.
+
+---
+
+<!-- _class: bg_white -->
+# Terminology - Services LoadBalancer
+<img class="float-right" src="/images/k8s-loadbalancer.png" width="40%">
+
+- `LoadBalancer` is a usually a cloud provider LoadBalancer. 
+- Every time you want to expose a service to the outside world, you have to create a new LoadBalancer and get an IP address.
+
+---
+
+<!-- _class: bg_white -->
+# Terminology - Services Ingress
+<img class="float-right" src="/images/k8s-ingress.png" width="50%">
+
+`Ingress` Will be covered later on in the network section
 
 ---
 # Terminology - Services yaml
@@ -530,6 +558,7 @@ Namespaces      | Description
 
 - User is interacting with the API
 - K8S use yaml as the declarative language
+
 ![bg 100% right](/images/k8s-clusters.png)
 
 ---
