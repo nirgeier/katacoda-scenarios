@@ -12,9 +12,9 @@ footer: '<div><b>Docker Intro</b><br/><sub>&copy;&nbsp;CodeWizard ltd &thinsp;|&
 ---
 
 # What is a container?
-- Comntainer is an image wcichi includes the following:
-    - The filesystem which conteiners needs in order to run (libraries, code).
-    - A metadata which add functionality to the continer (CMD, RUN)
+- Container is an image wcich includes the following:
+    - The filesystem which containers needs in order to run (libraries, code).
+    - A metadata which add functionality to the container (CMD, RUN)
     - Run time information for execution
     - Network, labels, Volumes and more
 
