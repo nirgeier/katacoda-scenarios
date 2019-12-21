@@ -16,7 +16,7 @@ kubectl get pods -n ingress-nginx
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/baremetal/service-nodeport.yaml
 
 # Verify that the pod is alive
-kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx --watch
+kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx
 
 # Create the services and ingress
-kubectl.exe apply -f .\02-k8s-pods.yaml
+kubectl apply -f 02-k8s-pods.yaml
