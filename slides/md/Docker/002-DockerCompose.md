@@ -205,27 +205,6 @@ depends_on:
 
 ---
 
-<!-- _class: font-20 numbered -->
-
-**01.** Open Unix terminal, What is your current Shell?
-**02.** What is your home folder? 
-**03.** List the files in your home directory
-**04.** Display the files sorted by date
-**05.** Under your home folder Create new folder names `session1`
-**06.** Switch to the new directory
-**07.** Create 3 sub directories under `session1` [`dir1`, `dir2`, `dir3`]
-**08.** Under `dir2` create new file named hello.txt and with the content `Hello World!`
-**09.** Verify that the file contain the desired text
-**10.** Copy the file to `dir1`
-**11.** Verify that the file exist in both folders using the `find` command
-**12.** Copy the file to `dir3` with the mew name `hello1.txt`
-**13.** Verify that the file exist
-**14.** List only the folders under `session1`
-**15.** Delete the folder `dir3`
-
----
-
-
 <!-- _class: nobg -->
 
 ![bg cover](/images/the-end.jpg)
