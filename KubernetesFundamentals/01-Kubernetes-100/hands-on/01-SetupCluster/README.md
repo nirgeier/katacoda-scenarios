@@ -1,8 +1,12 @@
+![](../resources/k8s-logos.png)
+
+----
+
 # K8S Hands-on
 
 ### Verify pre-requirements 
 
-- Verify that `kubectl` is insllated (You should get something like the following)
+- Verify that `kubectl` is installed (You should get something like the following)
     ```sh
     kubectl config view
     ```
@@ -81,3 +85,6 @@
                 docker-for-desktop   docker-desktop   docker-desktop
     *           minikube             minikube         minikube         ns-nirg
     ```
+
+---
+<a href="../02-Deployments">Deployments&nbsp;&#187;</a>

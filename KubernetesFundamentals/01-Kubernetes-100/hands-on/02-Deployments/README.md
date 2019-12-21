@@ -1,4 +1,8 @@
-### Creating deployments using `create` command
+![](../resources/k8s-logos.png)
+
+----
+
+# Creating deployments using `kubectl create`
 
 - We start with creating the following deployment
 [praqma/network-multitool](https://github.com/Praqma/Network-MultiTool)
@@ -47,6 +51,10 @@
     ```
 
 - Open the browser (the ip/ports are the one you got result above)            
-    http://10.0.0.4:30320/ and you should get something like:
+    http://10.0.0.4:12345/ and you should get something like:
     > Praqma Network MultiTool (with NGINX) - multitool-7885b5f94f-9s7xh - 172.17.0.8/16
 
+---
+<a href="../01-SetupCluster" style="float:left">&#171;&nbsp; Setup</a>
+&emsp;|&emsp;
+<a href="../03-Declarative">Declarative deployment&nbsp;&#187;</a>

@@ -1,3 +1,7 @@
+![](../resources/k8s-logos.png)
+
+----
+
 # Rollout (rollback) changes
 
 - In this step we will deploy the same application with several different versions and we will "switch" between them
@@ -90,3 +94,9 @@
   # Verify that we have the old version
   $ curl -sI <host>:<port>
   ```
+
+  ---
+<a href="../03-Declarative">&#171;&nbsp; Declarative deployment</a>
+&emsp;|&emsp;
+<a href="../05-Services">Services&nbsp;&#187;</a>   
+

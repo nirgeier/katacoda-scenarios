@@ -1,4 +1,8 @@
-### Deploy nginx using yaml file
+![](../resources/k8s-logos.png)
+
+----
+
+# Deploy nginx using yaml file (declarative)
 
 - Lets create the yaml file for the deployment.  
   If this is your first k8s yaml file its recommended that you will type it to get the feeling of the structure
@@ -77,4 +81,8 @@ spec:
 
         > Can you explain what do you see?   
           Whey there are more containers that requested?
-          
+
+---
+<a href="../02-Deployments">&#171;&nbsp; Deployments</a>
+&emsp;|&emsp;
+<a href="../04-Rollout">Rollout&nbsp;&#187;</a>          
