@@ -1,4 +1,4 @@
-- First lets initailiza teh kubectl
+- First lets initailiza the kubectl
 `kubeadm init --apiserver-advertise-address $(hostname -i)`
 
 - Lets start with creating namespace
