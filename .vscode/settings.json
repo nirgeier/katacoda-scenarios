@@ -9,5 +9,6 @@
             "extensionName": ".css",
             "savePath": "/slides/themes"
         }
-    ]
+    ],
+    "python.pythonPath": "C:\\Users\\Nir\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe"
 }

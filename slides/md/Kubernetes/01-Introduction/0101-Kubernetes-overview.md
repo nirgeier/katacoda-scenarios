@@ -35,9 +35,48 @@ footer: '<div><b>Kubernetes Introduction</b><br/><sub>&copy;&nbsp;CodeWizard ltd
 * The most contributed project by Unix community after the Linux Kernel 
 
 ---
+# What is Kubernetes? [batteries-included]
+
+* Think of Kubernetes like a higher-level language for your application architecture.
+    - You describe what you need and it tries to resolve it
+    - K8S acts as an engine to **resolve state** using the **abstracted resources** to **deploy and manage** your application.
+* It is `declarative`, and not `imperative`. 
+* You tell it or “declare” what you want, and it figures out the rest.
+    
+    &nbsp;        | &nbsp;
+    --------------|----------------------------------------------------------
+    `imperative`  | you tell it what you want it **in every step**
+    `declarative` | you tell it what you want it to be, and **it figures it out**
+
+* K8S gives you: **self-healing** and **seamless upgrading or rollback** of applications
+
+---
+# What can Kubernetes REALLY do?
+- Autoscale Workloads
+- Blue/Green Deployments
+- Manage Stateless and Stateful Applications
+- Provide native methods of service discovery (replaceable)
+- Easily integrate and support 3rd party apps (ex Helm, containers)
+
+* #### The killing feature:
+  **Use the SAME API across everywhere .... (bare metal & cloud providers)**
+
+---
+
+# Some Numbers
+- Over 61,000 stars on Github 
+- ~2400 Contributors to K8s Core
+- Most discussed repo on github
+- 1000+ pull requests
+- ~90,000 commits !!!!
+---
 
 # Kubernetes Architecture
 ![bg 75% cover](/images/k8s-clusters.png)
+
+---
+
+![bg 80% cover](/images/k8s.png)
 
 ---
 
@@ -241,6 +280,43 @@ Spec:
 - During **`creation`**,<br/> by default, at most 125% of the desired number of Pods are up (25% max surge).
 
 ---
+# Terminology - Deployments (yaml fields)
+### revisionHistoryLimit
+- The number of previous iterations of the Deployment to retain.
+
+### strategy: 
+  - Describes the method of  updating the Pods based on the type. 
+  - Valid options are Recreate or RollingUpdate. 
+    &nbsp;        | &nbsp;
+    --------------|-------
+    Recreate      | All existing Pods are killed before the new ones are created.
+    RollingUpdate | Cycles through updating the Pods according to the <br/>parameters: maxSurge and maxUnavailable.
+  
+---
+  <!-- _class: bg_white -->
+  ![bg 85% cover](/images/rs0.png)
+
+---
+  <!-- _class: bg_white -->
+  ![bg 85% cover](/images/rs1.png)
+
+---
+  <!-- _class: bg_white -->
+  ![bg 85% cover](/images/rs2.png)
+
+---
+  <!-- _class: bg_white -->
+  ![bg 85% cover](/images/rs3.png)
+
+---
+  <!-- _class: bg_white -->
+  ![bg 85% cover](/images/rs4.png)
+
+---
+  <!-- _class: bg_white -->
+  ![bg 85% cover](/images/rs5.png)
+
+---
 # Terminology - Deployments
 
 - Create X Deployments units of nginx
@@ -287,6 +363,7 @@ Spec:
 - A `Service` is an **abstraction** which defines a 
   - **Logical set** of Pods and a
   - **Policy** by which to access them (aka micro-service). 
+- Every service in K8S is actually a Load Balancer
 
 - The set of Pods is accessed by a selector
 - A `Service` in Kubernetes is a REST object
@@ -480,6 +557,18 @@ Namespaces      | Description
       ConfigMapRef:
         name: <.....>
   ```
+---
+
+# Terminology - ConfigMaps / Secrets
+
+>  Note: Unlike ConfigMaps you must also specify the **type** of Secret you are creating. 
+
+There are 3 types:
+Type              | Description 
+------------------|-------------
+docker-registry   | Credentials used to interact with a container registry.
+generic           | Equivalent to Opaque. Used for unstructured data.
+tls               | A TLS key pair (PEM Format) that accepts a cert (--cert) and key (--key).
 
 ---
 # Terminology - ConfigMaps / Secrets
@@ -513,7 +602,30 @@ Namespaces      | Description
     labels:
       environment: production
       app: nginx
+
+---
+# Terminology - Selectors
+- Selectors use labels to filter or select objects.
+
+  ```sh
+  apiVersion: v1
+  kind: Pod
+  metadata:
+    name: example
+    labels:
+      app: app1
+      env: prod
+  spec:
+    containers:
+    - name: app1
+      image: app1/app2
+      ports:
+      - containerPort: 80
+    nodeSelector:
+      key: value
+
   ```
+
 ---
 # Terminology - Labels and selectors
 
@@ -522,15 +634,15 @@ Namespaces      | Description
   - set-based
   
   ```
-  apiVersion: v1
-  kind: Pod
-  metadata:
-    name: label-demo
-    labels:
-      environment: production
-      app: nginx
+  apiVersion: v1                | selector:           |  selector:   
+  kind: Pod                     |   matchLabels:      |    matchExpressions:
+  metadata:                     |     gpu: nvidia     |    - key: gpu
+    name: label-demo            |                     |      operator: in 
+    labels:                     |                     |      values: [“nvidia”]
+      environment: production   |                     |
+      app: nginx                |                     |
   ```
-
+  
 ---
 # Terminology - etcd
 - `etcd` is a **consistent** and **highly-available** key value store used by Kubernetes
@@ -665,12 +777,11 @@ Namespaces      | Description
 * Secret can be stored in a volumes and we can declare specific secret volumes for serving sensitive data.
 * Secret can also be an environment variable 
 * The content of the secret is stored in the etcd as plain text
-* In latest versions K8S added 'Key management store integration` for using encryption keys to encrypt sensitive data (ex. Azure key-vault)
 ---
 
 # Secrets Management
-* In latest versions K8S added 'Key management store integration` for using encryption keys to encrypt sensitive data (ex. Azure key-vault)
-* In case we use 'Key management store integration` the data is encrypted before its being stored in the etcd
+* In latest versions K8S added `Key management store integration` for using encryption keys to encrypt sensitive data (ex. Azure key-vault)
+* In case we use `Key management store integration` the data is encrypted before its being stored in the etcd
 ---
 # Pods lifecycle
 
