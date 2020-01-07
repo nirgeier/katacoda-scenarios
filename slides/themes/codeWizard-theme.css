@@ -274,8 +274,9 @@ section mark {
 }
 
 section code {
-  background: #699bc4;
-  color: snow;
+  /*background: $color-dark;
+        color: snow;
+        */
   border-radius: 5px;
   padding: 0 7px;
 }
@@ -330,8 +331,9 @@ section.gaia mark {
 }
 
 section.gaia code {
-  background: #699bc4;
-  color: snow;
+  /*background: $color-dark;
+        color: snow;
+        */
   border-radius: 5px;
   padding: 0 7px;
 }
@@ -740,7 +742,7 @@ hr {
 
 footer {
   margin: 0 50px;
-  background: url("/images/codeWizard-logo-sm.png") left no-repeat, url("/images/hackeru-logo.png") right no-repeat;
+  background: url("/images/codeWizard-logo-sm.png") left no-repeat, url("/images/codeWizard-logo-sm.png") right no-repeat;
 }
 
 .bespoke-marp-parent > .bespoke-marp-osc {

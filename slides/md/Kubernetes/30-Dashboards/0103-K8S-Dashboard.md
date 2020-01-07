@@ -6,7 +6,7 @@
 
 - In this section we will create K8S dashboards
 - For the dashboard we will need the following:
-    -  Namespace
+    - Namespace
     - User
     - Service Account
     - Grant permissions

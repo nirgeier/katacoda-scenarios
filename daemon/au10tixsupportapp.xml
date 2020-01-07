@@ -1,0 +1,25 @@
+<service>
+	<id>au10tixsupportapp.exe</id>
+	<name>Au10tixSupportApp</name>
+	<description>Au10tixSupportApp web server.</description>
+	<executable>C:\Program Files\nodejs\node.exe</executable>
+	<logmode>rotate</logmode>
+	<argument>--harmony</argument>
+	<argument>F:\github\katacoda-scenarios\nodeService\node_modules\node-windows\lib\wrapper.js</argument>
+	<argument>--file</argument>
+	<argument>F:\github\katacoda-scenarios\nodeService</argument>
+	<argument>--log</argument>
+	<argument>Au10tixSupportApp wrapper</argument>
+	<argument>--grow</argument>
+	<argument>0.25</argument>
+	<argument>--wait</argument>
+	<argument>1</argument>
+	<argument>--maxrestarts</argument>
+	<argument>3</argument>
+	<argument>--abortonerror</argument>
+	<argument>n</argument>
+	<argument>--stopparentfirst</argument>
+	<argument>undefined</argument>
+	<stoptimeout>30sec</stoptimeout>
+	<workingdirectory>F:\github\katacoda-scenarios\nodeService</workingdirectory>
+</service>
