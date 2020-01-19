@@ -301,10 +301,10 @@ Flags      | Action
 
 ---
 
-<!-- _class: font-20 numbered -->
+<!-- _class: font-22 numbered -->
 # This hands-on session cover file system commands
 
-**01.** Open Unix terminal, What is your current Shell?
+**01.** Open Unix terminal, Which is your default Shell?
 **02.** What is your home folder? 
 **03.** List the files in your home directory
 **04.** Display the files sorted by date
@@ -326,13 +326,13 @@ Flags      | Action
 # There can be many solutions ..... 
  - This is only one of them
 
-```sh
+```
 01. chsh
 02. cd ~; pwd
-##
-## From this point we are in the home directory and uless specified 
-## otherwise all the paths are **relavite** to the home directory folder
-##
+    #  ---------------------------------------------------------------------------
+    #  -- From this point we are in the home directory and uless specified      --
+    #  -- otherwise all the paths are **relavite** to the home directory folder --
+    #  ---------------------------------------------------------------------------
 03. ls
 04. ls -lt
 05. mkdir session1
