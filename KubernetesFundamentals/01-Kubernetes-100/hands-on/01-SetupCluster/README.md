@@ -87,4 +87,4 @@
     ```
 
 ---
-<a href="../02-Deployments">Deployments&nbsp;&#187;</a>
+<a href="../02-Namespace">Deployments&nbsp;&#187;</a>

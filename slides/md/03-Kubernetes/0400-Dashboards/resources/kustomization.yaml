@@ -1,0 +1,12 @@
+# Combine the Dashboard resources in the right order
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  app: codewizard-dashboard-app
+
+# List of resources in the desired order
+resources:
+  - 0301-Namespace.yaml
+  - 0302-ServiceAccount.yaml
+  - 0303-ClusterRoleBinding.yaml

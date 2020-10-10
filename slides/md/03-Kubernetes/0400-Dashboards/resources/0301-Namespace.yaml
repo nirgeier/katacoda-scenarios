@@ -1,0 +1,5 @@
+# Create the Namespace for the dashboard
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: codewizard-dashboard
