@@ -3,7 +3,7 @@
 ----
 
 ### Setup Namespace    
-- Namespaces are the default way for kubernetes to separate resources. 
+- Namespaces are the default way for Kubernetes to separate resources. 
 - Using name spaces we can isolate the development since Namespaces do not share anything between them.
     ```sh
     # In this sample `ns-nirg` is the desired name space 

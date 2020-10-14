@@ -8,7 +8,7 @@
 - As before copy the content below to the `server/Dockerfile`
 
 <pre class="file" data-filename="server/Dockerfile" data-target="replace">
-    # Use lates nodeJs container
+    # Use latest nodeJs container
     FROM node
 
     # Expose the server port (in our sample 3000)
