@@ -8,4 +8,4 @@ Objectives
 - View the server logs.
 - Publish the container to docker hub
 
-![](https://deploybot.com/assets/guides/_740x345_crop_center-center/docker-head-big@2x.png =200) 
+![](https://www.whizlabs.com/blog/wp-content/uploads/2019/08/docker-fundamentals.png) 
