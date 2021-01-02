@@ -1,6 +1,9 @@
 
 In order to build and publish the container do the following:
 
+- **Important:**
+  The container name must start with your docker registry name or url
+
 - Execute following commands
   `docker build -t ${DOCKER_USER_NAME}/node-server .`{{execute}}
 

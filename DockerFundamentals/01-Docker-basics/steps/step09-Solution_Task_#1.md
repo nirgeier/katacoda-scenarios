@@ -10,7 +10,7 @@
 - Executed in detached mode so it will continue to run in the background
 - You need to start the server & expose the required **ports** so you can test your server
 
-    `docker run -d -p3000:3000 --name node_server node_server`
+    `docker run -d -p3000:3000 --name node_server node_server`{{execute}}
 
 Command          | Explanation
 -----------------|----------------------
