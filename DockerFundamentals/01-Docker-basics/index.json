@@ -66,7 +66,7 @@
   "environment": {
     "hideintro": false,
     "uilayout": "editor-terminal",
-    "uimessage1": "\u001b[32mWelcome To the Docker Into Hands-On",
+    "uimessage1": "\u001b[32mWelcome To the Docker Intro Hands-On by CodeWizard[34m",
     "showdashboard": true,
     "dashboards": [
       {
