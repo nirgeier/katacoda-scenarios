@@ -1,0 +1,65 @@
+{
+  "title": "Kubernetes Tutorial",
+  "description": "Kubernetes Tutorial",
+  "difficulty": "beginner",
+  "time": "Few hours",
+  "details": {
+    "steps": [
+      {
+        "title": "Preparations[1]",
+        "text": "steps/step00-Preparations[1].md"
+      },
+      {
+        "title": "Preparations[2]",
+        "text": "steps/step01-Preparations[2].md"
+      },
+      {
+        "title": "Building container",
+        "text": "steps/step02-Building_container.md"
+      },
+      {
+        "title": "Build",
+        "text": "steps/step03-Build-K8S-Service.md"
+      },
+      {
+        "title": "Building the cluster",
+        "text": "steps/step99-Building_the_cluster.md"
+      }
+    ],
+    "assets": {
+      "client": [
+        {
+          "file": "node-server/*",
+          "target": "node-server/"
+        }
+      ]
+    },
+    "intro": {
+      "courseData": "courseBase.sh",
+      "text": "steps/intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "steps/finish.md"
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mWelcome.\r\n\u001b[33m\u001b[mThis is your playground\r\n",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Node Server (port 3000)",
+        "port": 3000
+      },
+      {
+        "name": "Display 8080",
+        "port": 8080
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "minikube"
+  }
+}

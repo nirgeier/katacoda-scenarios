@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: config-value01
+    namespace: default
+data:
+    day: 'Sunday'
+    year: '2019'
+    rainning: 'false'
