@@ -134,7 +134,7 @@ fs.readdir(__dirname, (err, files) => {
   console.log(fs.lstatSync(files[0]).isDirectory());
 })
 
-//buildScenarioSteps(path.join(__dirname, 'DockerFundamentals/01-Docker-basics'));
+buildScenarioSteps(path.join(__dirname, '../DockerFundamentals/01-Docker-Basics'));
 //buildScenarioSteps(path.join(__dirname, 'DockerFundamentals/02-Docker-FileSystem'));
 buildScenarioSteps(path.join(__dirname, '../KubernetesFundamentals/01-Kubernetes-100'));
 //buildPathways();
