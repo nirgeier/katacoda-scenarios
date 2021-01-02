@@ -1,7 +1,7 @@
 
 In order to build and publish the container do the following:
 
-- **Important:**
+- **Important:**  
   The container name must start with your docker registry name or url
 
 - Execute following commands
