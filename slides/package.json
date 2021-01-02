@@ -19,7 +19,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "mS": "marp --server",
+    "mS": "marp --server --allow-local-files",
     "mPDF": "marp --pdf -o ./slides/pdf",
     "mHTML": "marp --html -o ./slides/html",
     "test": "echo \"Error: no test specified\" && exit 1"

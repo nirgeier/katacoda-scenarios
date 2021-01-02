@@ -3,9 +3,14 @@
     "description": "Docker Fundamentals",
     "courses": [
         {
-            "course_id": "01-Docker-basics",
+            "course_id": "01-Docker-Basics",
+            "title": "01-Docker-Basics",
+            "description": "Learn and get familier with docker basics"
+        },
+        {
+            "course_id": "02-Docker-Compose",
             "title": "01-Docker-basics",
-            "description": "01-Docker-basics"
+            "description": "01-Docker-Basics"
         }
     ]
 }
